@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController {
     
@@ -39,6 +40,10 @@ class ViewController: UIViewController {
         
     }
     @IBAction func safariButtonTapped(_ button: UIButton){
+        if let url = URL(string: "https://www.wwf.eu/"){
+            let safariController = SFSafariViewController(url: url)
+            present(safariController,animated: true,completion: nil)
+        }
         
     }
     @IBAction func photosButtonTapped(_ button: UIButton){
