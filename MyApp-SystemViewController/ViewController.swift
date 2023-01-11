@@ -27,7 +27,15 @@ class ViewController: UIViewController {
     //MARK: -Actions
     
     @IBAction func shareButtonTapped(_ button: UIButton){
+        //Ekranda bulunan imageviewda bir görsel olduğundan emin oluyorsunuz.
+        guard let image = imageView.image else {return}
+        //Adım 1: ActivityController nesnesi oluşturmak.
+        //activityitems: paylaşılacak olan nesneler (String, image, int, url..)
+        //applicationactivities: hangi platformda paylaşılmasına izin verileceği(tw,messages,email)
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
+        //bulunduğumuz controllerda yeni bir controller göstermek için kullanılır.
+        present(activityController, animated: true,completion: nil)
         
     }
     @IBAction func safariButtonTapped(_ button: UIButton){
