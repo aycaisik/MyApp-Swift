@@ -47,6 +47,34 @@ class ViewController: UIViewController {
         
     }
     @IBAction func photosButtonTapped(_ button: UIButton){
+        //.actionsheet : ekranın altından gelen sayfa görünümünde
+        //.alert : ekranın ortasından beliren pop-up
+        
+        //Adım 1: AlertController oluşturmak.
+        let alertController = UIAlertController(title: "Görsel kaynağını seçin", message: nil, preferredStyle: .actionSheet)
+        
+        //Adım 2: Aksiyonları oluşturmak.
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        let cameraAction = UIAlertAction(title: "Kamera", style: .default) { (action) in
+            //Aksiyon tetiklendiğinde bu kod bloğu çalışır.
+            print("Kamera")
+            
+        }
+        
+        let photoLibrary = UIAlertAction(title: "Fotoğraf Galerisi", style: .default) { (action) in
+            print("Fotoğraf Galerisi")
+        }
+        
+        //Adım 3: Oluşturulan aksiyonları UIAlertControllera eklenir.
+        alertController.addAction(cancelAction)
+        alertController.addAction(cameraAction)
+        alertController.addAction(photoLibrary)
+        
+        
+        //Adım 4: Ekranda gösteriniz.
+        present(alertController,animated: true,completion: nil)
+        
         
     }
     @IBAction func emailButtonTapped(_ button: UIButton){
