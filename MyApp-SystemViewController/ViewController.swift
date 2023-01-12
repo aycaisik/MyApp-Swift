@@ -7,8 +7,9 @@
 
 import UIKit
 import SafariServices
+import MessageUI
 
-class ViewController: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class ViewController: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate,MFMailComposeViewControllerDelegate{
     
     //MARK: - UI Elements
     
@@ -17,7 +18,7 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate,UINaviga
     //MARK: - Properties
     
     //MARK: - Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -81,7 +82,7 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate,UINaviga
             
             imagePickerController.sourceType = .camera //Controllerın nasıl açılacağını belirtir.
             self.present(imagePickerController,animated: true,completion: nil)
-
+            
             //print("Kamera")
             
         }
@@ -89,9 +90,9 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate,UINaviga
         let photoLibrary = UIAlertAction(title: "Fotoğraf Galerisi", style: .default) { (action) in
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController,animated: true,completion: nil)
-
-
-           // print("Fotoğraf Galerisi")
+            
+            
+            // print("Fotoğraf Galerisi")
         }
         
         //Adım 3: Oluşturulan aksiyonları UIAlertControllera eklenir.
@@ -106,10 +107,32 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate,UINaviga
         
     }
     @IBAction func emailButtonTapped(_ button: UIButton){
+        //Öncelikle mail atılabilir bir ortamda olunduğundan emin olmalıyız.
+        //Simülatörler mail atamaz.
+        
+        
+        if MFMailComposeViewController.canSendMail(){
+            print("Mail atılamıyor.")
+        }
+        //Adım 1 :  Controller oluşturmak
+        let mailComposer = MFMailComposeViewController()
+        mailComposer.mailComposeDelegate = self
+        
+        //Mail alıcılarını ayarlayabilirsiniz.
+        mailComposer.setToRecipients(["aycalnisik@gmail.com"])
+        
+        //Mail subjectini ayarlayabilirsiniz.
+        mailComposer.setSubject("WWF")
+        
+        //Mailin içeriğini de belirtebilirsiniz.
+        mailComposer.setMessageBody("merhaba", isHTML: false)
+        
+        //Adım 2: Oluşturulan viewControllerın ekranda gösterilmesi.
+        present(mailComposer,animated: true,completion: nil)
+        
+        
+        
         
     }
-
-
-
+    
 }
-
