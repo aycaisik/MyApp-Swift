@@ -8,7 +8,7 @@
 import UIKit
 import SafariServices
 
-class ViewController: UIViewController {
+class ViewController: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
     //MARK: - UI Elements
     
@@ -24,6 +24,15 @@ class ViewController: UIViewController {
     }
     
     //MARK: - Functions
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //Bu fonksiyon , UImagePicker tarafından bir fotoğraf seçildiğinde veya çekildiğinde çalışır.
+        guard let selectedImage = info[.originalImage] as? UIImage else {return}
+        //Seçilen görseli ImageViewa aktarmak.
+        imageView.image = selectedImage
+        //Bir ViewControllerın ekrandan gitmesi için kullanılan fonksiyon dismiss.
+        dismiss(animated: true,completion: nil)
+    }
     
     //MARK: -Actions
     
@@ -47,6 +56,17 @@ class ViewController: UIViewController {
         
     }
     @IBAction func photosButtonTapped(_ button: UIButton){
+        let imagePickerController = UIImagePickerController()
+        //ImagePickerControllerın yöneticisi olan sınıfın bu viewController olduğunu belirtir.
+        //Belirtmezseniz delegete fonk çalışmaz.
+        imagePickerController.delegate = self
+        
+        
+        
+        
+        
+        
+        
         //.actionsheet : ekranın altından gelen sayfa görünümünde
         //.alert : ekranın ortasından beliren pop-up
         
@@ -58,12 +78,20 @@ class ViewController: UIViewController {
         
         let cameraAction = UIAlertAction(title: "Kamera", style: .default) { (action) in
             //Aksiyon tetiklendiğinde bu kod bloğu çalışır.
-            print("Kamera")
+            
+            imagePickerController.sourceType = .camera //Controllerın nasıl açılacağını belirtir.
+            self.present(imagePickerController,animated: true,completion: nil)
+
+            //print("Kamera")
             
         }
         
         let photoLibrary = UIAlertAction(title: "Fotoğraf Galerisi", style: .default) { (action) in
-            print("Fotoğraf Galerisi")
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController,animated: true,completion: nil)
+
+
+           // print("Fotoğraf Galerisi")
         }
         
         //Adım 3: Oluşturulan aksiyonları UIAlertControllera eklenir.
