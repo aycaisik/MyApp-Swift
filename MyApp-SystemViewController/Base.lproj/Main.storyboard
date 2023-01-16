@@ -29,7 +29,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0z-8u-2Cv">
                                         <rect key="frame" x="0.0" y="0.0" width="84.666666666666671" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Share"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Share">
+                                            <color key="baseForegroundColor" systemColor="systemPinkColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="shareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1GO-O8-Drr"/>
                                         </connections>
@@ -37,7 +39,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSa-b7-vkH">
                                         <rect key="frame" x="89.666666666666686" y="0.0" width="84.333333333333314" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Safari"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Safari">
+                                            <color key="baseForegroundColor" systemColor="systemPinkColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="safariButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QGK-TR-5NU"/>
                                         </connections>
@@ -45,7 +49,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gh-nb-L71">
                                         <rect key="frame" x="179" y="0.0" width="84.666666666666686" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Camera"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Camera">
+                                            <color key="baseForegroundColor" systemColor="systemPinkColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="photosButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XTs-vW-GKV"/>
                                         </connections>
@@ -53,7 +59,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJ6-bX-0zi">
                                         <rect key="frame" x="268.66666666666669" y="0.0" width="84.333333333333314" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Email"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Email">
+                                            <color key="baseForegroundColor" systemColor="systemPinkColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="emailButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="Kk3-t4-mLF"/>
                                         </connections>
@@ -89,6 +97,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
